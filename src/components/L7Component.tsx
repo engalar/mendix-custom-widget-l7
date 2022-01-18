@@ -3,7 +3,7 @@ import { Observer } from "mobx-react";
 import { Store } from "../store";
 
 import { Cascader as C } from "antd";
-export interface CascaderComponentProps {
+export interface L7ComponentProps {
     store: Store;
 }
 
@@ -11,7 +11,7 @@ const onChange = (value: any, selectedOptions: any) => {
     console.log(value, selectedOptions);
 };
 
-export function CascaderComponent(props: CascaderComponentProps) {
+export function L7Component(props: L7ComponentProps) {
     console.log(props);
 
     return (

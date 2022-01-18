@@ -21,11 +21,11 @@ interface CommonProps {
 
 interface _W {}
 
-export interface CascaderContainerProps extends CommonProps, _W {
+export interface L7ContainerProps extends CommonProps, _W {
     myString: string;
 }
 
-export interface CascaderPreviewProps extends _W {
+export interface L7PreviewProps extends _W {
     class: string;
     style: string;
     styleObject: CSSProperties;
