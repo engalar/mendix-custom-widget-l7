@@ -64,6 +64,9 @@
     "big.js": "^5.2.2",
     "classnames": "^2.2.6",
     "mobx": "^6.3.10",
-    "mobx-react": "^7.2.1"
+    "mobx-react": "^7.2.1",
+    "@antv/l7": "^2.7.0",
+    "@antv/l7-maps": "^2.7.0",
+    "@antv/l7-react": "^2.3.9"
   }
 }
