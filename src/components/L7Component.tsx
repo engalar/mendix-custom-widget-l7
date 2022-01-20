@@ -2,6 +2,7 @@ import { createElement, useEffect, useState } from "react";
 import { Store } from "../store";
 
 import { AMapScene, Marker } from "@antv/l7-react";
+import useGeolocation from 'react-hook-geolocation';
 export interface L7ComponentProps {
     store: Store;
 }
@@ -56,6 +57,10 @@ const MarkerInfo = ({ title }: { title: string }) => {
 
 export function L7Component(props: L7ComponentProps) {
     console.log(props);
+
+    const geolocation = useGeolocation();
+    console.log(geolocation);
+
 
     const [data, setData] = useState<any[]>();
     useEffect(() => {
