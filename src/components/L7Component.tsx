@@ -58,7 +58,7 @@ const MarkerInfo = ({ title }: { title: string }) => {
 export function L7Component(props: L7ComponentProps) {
     console.log(props);
 
-    const geolocation = useGeolocation();
+    const geolocation: any = useGeolocation();
     console.log(geolocation);
 
 
@@ -97,6 +97,9 @@ export function L7Component(props: L7ComponentProps) {
                         </Marker>
                     );
                 })}
+            <Marker lnglat={[geolocation.longitude, geolocation.latitude]}>
+                <img src="https://a.amap.com/jsapi/static/image/plugin/point.png"></img>
+            </Marker>
         </AMapScene>
     );
 }
