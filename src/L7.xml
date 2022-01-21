@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="com.mendix.widget.custom.l7.L7" needsEntityContext="false" offlineCapable="true" supportedPlatform="Web"
+<widget id="com.mendix.widget.custom.l7.L7" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
     xmlns="http://www.mendix.com/widget/1.0/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>L7</name>
@@ -7,8 +7,19 @@
     <icon></icon>
     <properties>
         <propertyGroup caption="通用">
-            <property key="myString" type="string" required="false" multiline="false">
-                <caption>String</caption>
+            <!-- mx.session.sessionData.constants[0] -->
+            <!-- {name: 'MyFirstModule.MyConstant', type: 'String', value: 'MyConstantValue'} -->
+            <!-- <property key="token" type="expression" defaultValue="">
+              <caption>地图APK Token</caption>
+              <description></description>
+              <returnType type="String" />
+            </property> -->
+            <property key="entityMark" type="entity" required="false" pathType="referenceSet" isPath="optional">
+                <caption>标记</caption>
+                <description></description>
+            </property>
+            <property key="constraintMark" type="entityConstraint" required="false" entityProperty="entityMark">
+                <caption>标记约束</caption>
                 <description></description>
             </property>
         </propertyGroup>

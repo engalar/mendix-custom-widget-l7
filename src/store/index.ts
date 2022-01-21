@@ -1,16 +1,24 @@
 import { CascaderOptionType } from "antd/lib/cascader";
-import { configure, flow, makeObservable, observable } from "mobx";
+import { autorun, configure, flow, makeObservable, observable } from "mobx";
+import { useEffect } from "react";
 
 configure({ enforceActions: "observed", isolateGlobalState: true, useProxies: "never" });
 
 export class Store {
+    mxObject?: mendix.lib.MxObject;
     /**
      * dispose
      */
     public dispose() {}
 
     constructor() {
-        makeObservable(this, { options: observable, load: flow.bound });
+        makeObservable(this, { options: observable, load: flow.bound, mxObject: observable });
+
+        useEffect(() => {
+            autorun(() => {
+                console.log("xxx", this.mxObject);
+            });
+        }, []);
     }
 
     public options: CascaderOptionType[] | undefined = [

@@ -1,17 +1,16 @@
-import { createElement, useState } from "react";
+import { createElement } from "react";
 
 import { L7ContainerProps } from "../typings/L7Props";
 
 import "./ui/index.scss";
 
 import { Observer } from "mobx-react";
-import { Store } from "./store";
 import { L7Component } from "./components/L7Component";
+import useEntityContext from "./hooks/useEntityContext";
+
 
 export default function (props: L7ContainerProps) {
-    console.log(props);
-
-    const [store] = useState(new Store());
+    const store = useEntityContext(props);
 
     return <Observer>{() => <L7Component store={store} />}</Observer>;
 }
