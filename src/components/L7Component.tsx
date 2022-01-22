@@ -1,8 +1,9 @@
-import { createElement, useEffect, useState } from "react";
+import { createElement } from "react";
 import { Store } from "../store";
 
 import { AMapScene, Marker } from "@antv/l7-react";
 import useGeolocation from 'react-hook-geolocation';
+import { OptionItem } from "../store/objects/OptionItem";
 export interface L7ComponentProps {
     store: Store;
 }
@@ -56,23 +57,8 @@ const MarkerInfo = ({ title }: { title: string }) => {
 
 
 export function L7Component(props: L7ComponentProps) {
-    console.log(props);
-
     const geolocation: any = useGeolocation();
-    console.log(geolocation);
 
-
-    const [data, setData] = useState<any[]>();
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(
-                'https://gw.alipayobjects.com/os/basement_prod/893d1d5f-11d9-45f3-8322-ee9140d288ae.json',
-            );
-            const data = await response.json();
-            setData(data);
-        };
-        fetchData();
-    }, []);
     return (
         <AMapScene className="mxcn-l7"
             map={{
@@ -89,10 +75,10 @@ export function L7Component(props: L7ComponentProps) {
                 bottom: 0,
             }}
         >
-            {data &&
-                data.map((item: any) => {
+            {props.store.marks &&
+                props.store.marks.map((item: OptionItem) => {
                     return (
-                        <Marker key={item.id} lnglat={[item.longitude, item.latitude]}>
+                        <Marker key={item.guid} lnglat={[item.longitude, item.latitude]}>
                             <MarkerInfo title={item.name} />
                         </Marker>
                     );

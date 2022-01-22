@@ -22,6 +22,10 @@ interface CommonProps {
 interface _W {
     constrainMark: string;
     entityMark: string;
+
+    name: string;
+    latitude: string;
+    longitude: string;
 }
 
 export interface L7ContainerProps extends CommonProps, _W {

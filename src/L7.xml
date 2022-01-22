@@ -22,6 +22,27 @@
                 <caption>标记约束</caption>
                 <description></description>
             </property>
+            <property key="longitude" type="attribute" entityProperty="entityMark" required="true">
+                <caption>经度</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Decimal" />
+                </attributeTypes>
+            </property>
+            <property key="latitude" type="attribute" entityProperty="entityMark" required="true">
+                <caption>纬度</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="Decimal" />
+                </attributeTypes>
+            </property>
+            <property key="name" type="attribute" entityProperty="entityMark" required="true">
+                <caption>名称</caption>
+                <description></description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
         </propertyGroup>
     </properties>
 </widget>
