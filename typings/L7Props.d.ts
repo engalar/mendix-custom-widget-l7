@@ -19,7 +19,10 @@ interface CommonProps {
     style: string;
 }
 
-interface _W {}
+interface _W {
+    constrainMark: string;
+    entityMark: string;
+}
 
 export interface L7ContainerProps extends CommonProps, _W {
     myString: string;

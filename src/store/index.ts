@@ -1,6 +1,7 @@
+import { fetchByXpath } from "@jeltemx/mendix-react-widget-utils";
 import { CascaderOptionType } from "antd/lib/cascader";
-import { autorun, configure, flow, makeObservable, observable } from "mobx";
-import { useEffect } from "react";
+import { configure, flow, makeObservable, observable, when } from "mobx";
+import { L7ContainerProps } from "../../typings/L7Props";
 
 configure({ enforceActions: "observed", isolateGlobalState: true, useProxies: "never" });
 
@@ -11,14 +12,15 @@ export class Store {
      */
     public dispose() {}
 
-    constructor() {
+    constructor(public props: Omit<L7ContainerProps, "mxObject">) {
         makeObservable(this, { options: observable, load: flow.bound, mxObject: observable });
 
-        useEffect(() => {
-            autorun(() => {
-                console.log("xxx", this.mxObject);
-            });
-        }, []);
+        when(
+            () => !!this.mxObject,
+            () => {
+                fetchByXpath(this.mxObject!, props.entityMark, props.constrainMark);
+            }
+        );
     }
 
     public options: CascaderOptionType[] | undefined = [

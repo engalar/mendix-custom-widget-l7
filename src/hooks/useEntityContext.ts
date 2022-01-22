@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { CommonProps } from "../../typings/L7Props";
+import { L7ContainerProps } from "../../typings/L7Props";
 import { Store } from "../store";
 
-export default function(props: CommonProps) {
-    const [store] = useState(new Store());
+export default function(props: L7ContainerProps) {
+    const [store] = useState(new Store(props));
 
     useEffect(() => {
         if (props.mxObject) {
